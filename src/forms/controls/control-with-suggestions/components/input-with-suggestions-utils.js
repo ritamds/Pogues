@@ -12,7 +12,7 @@ export function updateSuggestions(text, regex, availableSuggestions) {
 }
 
 export function initialize() {
-  return { suggestions: [], hoveredSuggestionIndex: 0 };
+  return { suggestions: [], hoveredSuggestionIndex: 0, typedInput: '' };
 }
 
 export function getNewIndex(currentIndex, suggestions, numSuggestionsShown) {

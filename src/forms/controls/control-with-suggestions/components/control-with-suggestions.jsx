@@ -102,9 +102,10 @@ class ControlWithSuggestions extends Component {
       this.input.value,
     );
     const restfullText = this.input.value.substr(this.input.selectionStart, this.input.value.length);
-    
+
     this.props.input.onChange(`${newValue} ${restfullText}`);
     this.setState(initialize());
+    this.setState({ typedInput: this.input.value });
   };
 
   // OnKeyDown of the input
@@ -113,6 +114,8 @@ class ControlWithSuggestions extends Component {
       this.handleTab(e);
     } else if (e.key === 'Enter') {
       this.handleEnter(e);
+    } else if (e.key === 'Backspace') {
+      this.handleBackSpace(e);
     }
   };
 
@@ -137,6 +140,16 @@ class ControlWithSuggestions extends Component {
 
     if (suggestions.length > 0) {
       this.handleSuggestionClick(suggestions[hoveredSuggestionIndex]);
+      e.preventDefault();
+    }
+  };
+
+  handleBackSpace = e => {
+    const { typedInput } = this.state;
+
+    if (typedInput && this.input.value !== typedInput) {
+      this.input.value = typedInput;
+      this.setState({ typedInput: '' });
       e.preventDefault();
     }
   };

@@ -10,6 +10,7 @@ const { COMPONENT_CLASS } = CONTROL_TEXTAREA;
 // Component
 
 class TextareaWithSuggestions extends ControlWithSuggestion {
+
   render() {
     const {
       label,

@@ -27,6 +27,7 @@ describe('input-with-suggestions-utils', () => {
       expect(initialize()).toEqual({
         suggestions: [],
         hoveredSuggestionIndex: 0,
+        typedInput: ''
       });
     });
   });
