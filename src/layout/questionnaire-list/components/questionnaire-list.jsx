@@ -51,13 +51,11 @@ class QuestionnaireList extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.permission !== this.props.user.permission) {
-      console.log("state1", this.state )
       this.props.loadQuestionnaireList(nextProps.user.permission)
         .then(() => {
           this.setState({	
                 loaded: true,	
             });
-            console.log("state2", this.state )
         });
     }
   }
